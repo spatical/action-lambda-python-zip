@@ -2,8 +2,8 @@
 
 configure_aws_credentials(){
 	aws configure set aws_access_key_id "${INPUT_AWS_ACCESS_KEY_ID}"
-    aws configure set aws_secret_access_key "${INPUT_AWS_SECRET_ACCESS_KEY}"
-    aws configure set default.region "${INPUT_LAMBDA_REGION}"
+	aws configure set aws_secret_access_key "${INPUT_AWS_SECRET_ACCESS_KEY}"
+	aws configure set default.region "${INPUT_LAMBDA_REGION}"
 }
 
 install_zip_dependencies(){
@@ -29,6 +29,7 @@ publish_function_code(){
 
 update_function_layers(){
 	echo "Using the layer in the function..."
+	aws lambda wait function-updated --function-name "${INPUT_LAMBDA_FUNCTION_NAME}"
 	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}"
 }
 
