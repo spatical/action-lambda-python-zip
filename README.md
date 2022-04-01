@@ -48,7 +48,7 @@ jobs:
     - name: Deploy code to Lambda
       uses: spatical/action-lambda-python-zip@v1.0
       with:
-        lambda_layer_arn: 'arn:aws:lambda:eu-central-1:222222222222:layer:layer-name'
+        lambda_layer_arn: arn:aws:lambda:eu-central-1:222222222222:layer:layer-name
         lambda_function_name: ${{ secrets.LAMBDA_FUNCTION_NAME }}
         lambda_region: 'eu-central-1'
       env:
