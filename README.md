@@ -46,7 +46,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Deploy code to Lambda
-      uses: qubitro/action-lambda-python-zip@v1.0
+      uses: spatical/action-lambda-python-zip@v1.0
       with:
         lambda_layer_arn: 'arn:aws:lambda:eu-central-1:222222222222:layer:layer-name'
         lambda_function_name: ${{ secrets.LAMBDA_FUNCTION_NAME }}
